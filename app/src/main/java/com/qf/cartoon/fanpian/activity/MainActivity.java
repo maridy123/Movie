@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ImageButton;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -26,9 +26,6 @@ public class MainActivity extends AppCompatActivity implements onInterfaceListen
     //    @BindView(R.id.big_viewpager)
     ViewPager big_viewpager;
     RelativeLayout relativelayout;
-    ImageButton big_user_radio_btn;
-    ImageButton big_search_radio_btn;
-
     List<Fragment> fragmentlist = new ArrayList<>();
     CenterFragment centerFragment;
     TextView my_text_view;
@@ -45,9 +42,9 @@ public class MainActivity extends AppCompatActivity implements onInterfaceListen
         my_text_view = (TextView) findViewById(R.id.my_text_view);
         recommend_text_view = (TextView) findViewById(R.id.recommend_text_view);
         find_text_view = (TextView) findViewById(R.id.find_text_view);
-        big_user_radio_btn= (ImageButton) findViewById(R.id.big_user_radio_btn);
         relativelayout= (RelativeLayout) findViewById(R.id.relativelayout);
 
+        my_text_view.setTextColor(Color.RED);
         initFragment();
     }
 
@@ -59,8 +56,6 @@ public class MainActivity extends AppCompatActivity implements onInterfaceListen
         BigAdapter adapter = new BigAdapter(getSupportFragmentManager(), fragmentlist);
         big_viewpager.setAdapter(adapter);
         big_viewpager.setCurrentItem(1);
-
-
         big_viewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -80,6 +75,30 @@ public class MainActivity extends AppCompatActivity implements onInterfaceListen
             @Override
             public void onPageScrollStateChanged(int state) {
 
+            }
+        });
+
+        my_text_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                centerFragment.onClick(0);
+//                Intent intent =new Intent();
+//                intent.setAction("ok");
+//                sendBroadcast(intent);
+            }
+        });
+
+        recommend_text_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                centerFragment.onClick(1);
+            }
+        });
+
+        find_text_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                centerFragment.onClick(2);
             }
         });
     }

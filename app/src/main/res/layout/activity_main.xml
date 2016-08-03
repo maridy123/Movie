@@ -13,13 +13,14 @@
         android:id="@+id/relativelayout"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:background="@color/gray"
-        android:padding="10dp">
+        android:background="@color/write"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp">
 
         <ImageButton
             android:id="@+id/big_user_radio_btn"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
             android:background="@drawable/index_right"
@@ -46,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="我的"
+                android:textSize="20sp"
                 android:gravity="center"/>
             <TextView
                 android:id="@+id/recommend_text_view"
@@ -53,12 +55,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="推荐"
+                android:textSize="20sp"
                 android:gravity="center"/>
             <TextView
                 android:id="@+id/find_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="20sp"
                 android:text="发现"
                 android:gravity="center"/>
         </LinearLayout>

@@ -23,6 +23,10 @@ public class CenterFragment extends Fragment {
     SmallViewPager center_viewPager;
     ViewPager small_viewPager;
 
+    MyFragment myFragment;
+    RecommendFragment recommendFragment;
+    FindFragment findFragment;
+
     List<Fragment> centerList=new ArrayList<>();
     onInterfaceListener monInterfaceListener;
     public CenterFragment() {
@@ -42,12 +46,16 @@ public class CenterFragment extends Fragment {
         return view;
     }
     private void initFrgament() {
-        centerList.add(new MyFragment());
-        centerList.add(new RecommendFragment());
-        centerList.add(new FindFragment());
+        myFragment=new MyFragment();
+        recommendFragment=new RecommendFragment();
+        findFragment=new FindFragment();
+        centerList.add(myFragment);
+        centerList.add(recommendFragment);
+        centerList.add(findFragment);
 
         BigAdapter adapter=new BigAdapter(getFragmentManager(),centerList);
         small_viewPager.setAdapter(adapter);
+
         small_viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -67,6 +75,23 @@ public class CenterFragment extends Fragment {
 
 
     }
+
+    public void onClick(int pos){
+        switch (pos){
+            case 0:
+                small_viewPager.setCurrentItem(0);
+                break;
+            case 1:
+                small_viewPager.setCurrentItem(1);
+                break;
+            case 2:
+                small_viewPager.setCurrentItem(2);
+                break;
+        }
+    }
+
 }
+
+
 
 
