@@ -4,10 +4,8 @@
     android:layout_height="match_parent"
     android:background="#00ff00"
     tools:context="com.qf.cartoon.fanpian.fragment.MyFragment">
-
-    <RelativeLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="48dp">
-    </RelativeLayout>
-
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
 </FrameLayout>
